@@ -1,0 +1,36 @@
+if status is-interactive
+    # Commands to run in interactive sessions can go here
+
+    # Add Brew to $PATH
+    if test -e /home/linuxbrew/.linuxbrew/bin/brew
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    else if test -e /opt/homebrew/bin/brew
+        eval "$(/opt/homebrew/bin/brew shellenv)"
+    end
+
+    # Customise shell prompt
+    oh-my-posh init fish --config '~/.mytheme.omp.json' | source
+
+    # Reuse Bash aliases
+    source ~/.bash_aliases
+
+    # Python venv
+    alias v='source .venv/bin/activate.fish'
+    alias vv='pushd (pwd); ..; v; popd'
+
+    # Abbreviations
+    abbr --add dotdot --regex '^\.{2,}$' --function multicd
+
+    # Created by `pipx` on 2023-08-07 02:26:38
+    # Add pipx to $PATH
+    set PATH $PATH /home/cenviity/.local/bin
+
+    # Initiate pyenv
+    if test -e /opt/homebrew/bin/pyenv
+        pyenv init - | source
+    end
+    
+    # Add pipx autocompletions
+    # eval "$(register-python-argcomplete pipx)"
+end
+

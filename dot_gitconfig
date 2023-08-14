@@ -1,0 +1,31 @@
+[credential "https://github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.32.1/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper =
+	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.32.1/bin/gh auth git-credential
+[init]
+	defaultBranch = main
+[user]
+	email = cenviity@gmail.com
+	name = Vincent Ging Ho Yim
+[alias]
+	cm = commit -m
+	s = status
+	d = diff
+	dc = diff --cached
+	sh = show
+	ps = push
+	l = log
+	cam = commit -am
+	a = add
+[core]
+	editor = code --wait
+[diff]
+	tool = default-difftool
+[difftool "default-difftool"]
+	cmd = code --wait --diff $LOCAL $REMOTE
+[merge]
+	tool = code
+[mergetool "code"]
+	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED

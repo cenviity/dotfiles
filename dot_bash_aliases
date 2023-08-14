@@ -1,0 +1,9 @@
+alias py=python3
+alias omp=oh-my-posh
+
+# Python venv
+alias v='source .venv/bin/activate'
+alias dv=deactivate
+
+alias ptp=ptpython
+alias pti=ptipython
