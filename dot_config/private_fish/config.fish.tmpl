@@ -2,7 +2,7 @@ if status is-interactive
     # Commands to run in interactive sessions can go here
 
     # Add Brew to $PATH
-    eval "$({{ .brew }} shellenv)"
+    eval "$({{ output "which" "brew" | trim }} shellenv)"
 
     # Customise shell prompt
     oh-my-posh init fish --config '~/.mytheme.omp.json' | source
