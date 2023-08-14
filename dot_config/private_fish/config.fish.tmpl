@@ -18,10 +18,6 @@ if status is-interactive
     # Abbreviations
     abbr --add dotdot --regex '^\.{2,}$' --function multicd
 
-    # Created by `pipx` on 2023-08-07 02:26:38
-    # Add pipx to $PATH
-    set PATH $PATH /home/cenviity/.local/bin
-
     # Initiate pyenv
     {{- if output "which" "pyenv" }}
     pyenv init - | source
