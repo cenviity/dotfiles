@@ -7,11 +7,6 @@ if status is-interactive
     # Customise shell prompt
     oh-my-posh init fish --config '~/.mytheme.omp.json' | source
 
-    # Reuse Bash aliases
-    source ~/.bash_aliases
-
-    alias cz='chezmoi'
-
     # Abbreviations
     abbr --add dotdot --regex '^\.{2,}$' --function multicd
 
