@@ -1,16 +1,17 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-
-    {{- if eq "DSDU" .chezmoi.hostname }}
+    {{ if eq "DSDU" .chezmoi.hostname }}
     # Add Brew to $PATH
     eval "$({{ output "which" "brew" | trim }} shellenv)"
-    {{- end }}
-
+    {{ end }}
     {{- if output "which" "pyenv" }}
     # Initiate pyenv
     pyenv init - | source
-    {{- end }}
-
+    {{ end }}
+    {{- if output "which" "atuin" }}
+    # Initiate atuin
+    atuin init fish | source
+    {{ end }}
     # Customise shell prompt
     oh-my-posh init fish --config '~/.mytheme.omp.json' | source
 end
