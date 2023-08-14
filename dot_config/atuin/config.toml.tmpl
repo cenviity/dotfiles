@@ -70,7 +70,11 @@
 
 ## use ctrl instead of alt as the shortcut modifier key for numerical UI shortcuts
 ## alt-0 .. alt-9
-# ctrl_n_shortcuts = false
+{{- if eq .chezmoi.os "darwin" }}
+ctrl_n_shortcuts = true
+{{- else if eq .chezmoi.os "windows" }}
+ctrl_n_shortcuts = false
+{{- end }}
 
 ## prevent commands matching any of these regexes from being written to history.
 ## Note that these regular expressions are unanchored, i.e. if they don't start
