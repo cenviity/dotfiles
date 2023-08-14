@@ -26,10 +26,10 @@
 [core]
 	editor = code --wait
 [diff]
-	tool = default-difftool
-[difftool "default-difftool"]
+	tool = vscode
+[difftool "vscode"]
 	cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
-	tool = code
-[mergetool "code"]
+	tool = vscode
+[mergetool "vscode"]
 	cmd = code --wait --merge $REMOTE $LOCAL $BASE $MERGED
