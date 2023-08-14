@@ -7,9 +7,6 @@ if status is-interactive
     # Customise shell prompt
     oh-my-posh init fish --config '~/.mytheme.omp.json' | source
 
-    # Abbreviations
-    abbr --add dotdot --regex '^\.{2,}$' --function multicd
-
     # Initiate pyenv
     {{- if output "which" "pyenv" }}
     pyenv init - | source
