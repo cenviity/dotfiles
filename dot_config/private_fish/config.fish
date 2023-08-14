@@ -17,6 +17,7 @@ if status is-interactive
     # Python venv
     alias v='source .venv/bin/activate.fish'
     alias vv='pushd (pwd); ..; v; popd'
+    alias cz='chezmoi'
 
     # Abbreviations
     abbr --add dotdot --regex '^\.{2,}$' --function multicd
@@ -29,8 +30,7 @@ if status is-interactive
     if test -e /opt/homebrew/bin/pyenv
         pyenv init - | source
     end
-    
+
     # Add pipx autocompletions
     # eval "$(register-python-argcomplete pipx)"
 end
-
