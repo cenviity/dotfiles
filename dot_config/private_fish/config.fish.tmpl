@@ -6,11 +6,11 @@ if status is-interactive
     eval "$({{ output "which" "brew" | trim }} shellenv)"
     {{- end }}
 
-    # Customise shell prompt
-    oh-my-posh init fish --config '~/.mytheme.omp.json' | source
-
-    # Initiate pyenv
     {{- if output "which" "pyenv" }}
+    # Initiate pyenv
     pyenv init - | source
     {{- end }}
+
+    # Customise shell prompt
+    oh-my-posh init fish --config '~/.mytheme.omp.json' | source
 end
