@@ -23,9 +23,9 @@ if status is-interactive
     set PATH $PATH /home/cenviity/.local/bin
 
     # Initiate pyenv
-    if test -e /opt/homebrew/bin/pyenv
-        pyenv init - | source
-    end
+    {{- if output "which" "pyenv" }}
+    pyenv init - | source
+    {{- end }}
 
     # Add pipx autocompletions
     # eval "$(register-python-argcomplete pipx)"
