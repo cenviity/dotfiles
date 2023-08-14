@@ -1,0 +1,16 @@
+[cd]
+    command = "fish"
+
+[merge]
+    command = "code"
+    args = [
+        "--wait",
+        "--new-window",
+        "{{ "{{" }} .Destination {{ "}}" }}",
+        "{{ "{{" }} .Source {{ "}}" }}",
+        "{{ "{{" }} .Target {{ "}}" }}",
+    ]
+
+[data]
+    home = {{ .chezmoi.homeDir | quote }}
+    brew = {{ output "which" "brew" | trim | quote }}
