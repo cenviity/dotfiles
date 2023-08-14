@@ -1,21 +1,25 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    {{ if eq "DSDU" .chezmoi.hostname }}
+    {{- if eq "DSDU" .chezmoi.hostname }}
     # Add Brew to $PATH
     eval "$({{ output "which" "brew" | trim }} shellenv)"
-    {{ end }}
-    {{- if output "which" "pyenv" }}
+    {{- end }}
+
     # Initiate pyenv
-    pyenv init - | source
-    {{ end }}
-    {{- if output "which" "atuin" }}
+    if type -q pyenv
+        pyenv init - | source
+    end
+
     # Initiate atuin
-    set -gx ATUIN_NOBIND "true"
-    atuin init fish | source
-    # atuin: Bind to ctrl-r in normal and insert mode, add any other bindings you want here too
-    bind \cr _atuin_search
-    bind -M insert \cr _atuin_search
-    {{ end }}
+    if type -q atuin
+        set -gx ATUIN_NOBIND "true"
+        atuin init fish | source
+
+        # atuin: Bind to ctrl-r in normal and insert mode, add any other bindings you want here too
+        bind \cr _atuin_search
+        bind -M insert \cr _atuin_search
+    end
+
     # Customise shell prompt
     oh-my-posh init fish --config '~/.mytheme.omp.json' | source
 end
