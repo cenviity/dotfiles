@@ -1,5 +1,5 @@
 # Python
-alias py=python3
+alias py=python
 alias ptp=ptpython
 alias pti=ptipython
 
