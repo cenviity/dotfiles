@@ -1,8 +1,10 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    {{- if eq "DSDU" .chezmoi.hostname }}
     # Add Brew to $PATH
     eval "$({{ output "which" "brew" | trim }} shellenv)"
+    {{- end }}
 
     # Customise shell prompt
     oh-my-posh init fish --config '~/.mytheme.omp.json' | source
