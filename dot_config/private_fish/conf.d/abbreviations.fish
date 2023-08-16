@@ -1,5 +1,6 @@
 # General
 abbr dotdot --regex '^\.{2,}$' --function multicd
+abbr em 'emacs-gtk &'
 abbr omp 'oh-my-posh'
 
 # chezmoi
