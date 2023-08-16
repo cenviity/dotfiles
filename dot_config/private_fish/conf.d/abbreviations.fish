@@ -4,9 +4,11 @@ abbr -a omp 'oh-my-posh'
 
 # chezmoi
 abbr -a cz 'chezmoi'
+abbr -a cza 'chezmoi apply'
 abbr -a czc 'chezmoi cd'
 abbr -a czd 'chezmoi diff'
 abbr -a cze 'chezmoi edit'
+abbr -a czr 'chezmoi re-add'
 abbr -a czv 'chezmoi verify'
 
 # Python
