@@ -9,7 +9,10 @@ abbr cza 'chezmoi apply'
 abbr czc 'chezmoi cd'
 abbr czd 'chezmoi diff'
 abbr cze 'chezmoi edit'
+abbr czm 'chezmoi managed'
 abbr czr 'chezmoi re-add'
+abbr czu 'chezmoi update'
+abbr czum 'chezmoi unmanaged'
 abbr czv 'chezmoi verify'
 
 # Python
