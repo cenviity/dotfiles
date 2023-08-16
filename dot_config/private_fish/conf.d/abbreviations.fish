@@ -6,6 +6,7 @@ abbr omp 'oh-my-posh'
 # chezmoi
 abbr cz 'chezmoi'
 abbr cza 'chezmoi apply'
+abbr czaa 'chezmoi add'
 abbr czc 'chezmoi cd'
 abbr czd 'chezmoi diff'
 abbr cze 'chezmoi edit'
