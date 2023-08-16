@@ -4,14 +4,5 @@
 [diff]
     pager = "diff-so-fancy"
 
-[merge]
-    command = "code"
-    args = [
-        "--wait",
-        "--new-window",
-        "{{ "{{" }} .Destination {{ "}}" }}",
-        "{{ "{{" }} .Source {{ "}}" }}",
-        "{{ "{{" }} .Target {{ "}}" }}",
-    ]
-
 [data]
+    home = {{ .chezmoi.homeDir | quote }}
