@@ -24,6 +24,3 @@
 
 (use-package magit
     :bind (("C-x g" . magit)))
-
-;; Enable mouse usage
-(xterm-mouse-mode 1)
