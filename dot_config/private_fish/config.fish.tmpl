@@ -22,6 +22,7 @@ if status is-interactive
 
     # Initiate zoxide
     if type -q zoxide
+        set -Ux _ZO_ECHO 1 # Print the matched directory before navigating to it
         zoxide init fish | source
     end
 
