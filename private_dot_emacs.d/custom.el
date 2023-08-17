@@ -33,3 +33,6 @@
   (if (display-graphic-p)
     (message "`suspend-frame` disabled for graphical displays")
     (suspend-frame)))
+
+;; Shorten all `yes-or-no` questions to `y-or-n`.
+(defalias 'yes-or-no-p 'y-or-n-p)
