@@ -20,6 +20,11 @@ if status is-interactive
         bind -M insert \cr _atuin_search
     end
 
+    # Initiate zoxide
+    if type -q zoxide
+        zoxide init fish | source
+    end
+
     # Customise shell prompt
     oh-my-posh init fish --config '~/.mytheme.omp.json' | source
 end
