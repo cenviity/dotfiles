@@ -24,7 +24,7 @@ abbr pti 'ptipython'
 
 # Python venv
 abbr v 'source .venv/bin/activate.fish'
-abbr vv '..; v; prevd'
+abbr vv '..; source .venv/bin/activate.fish; prevd'
 abbr dv 'deactivate'
 
 # Git
