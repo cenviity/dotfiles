@@ -1,6 +1,6 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
-    {{- if eq "DSDU" .chezmoi.hostname }}
+    {{- if contains "DSDU" .chezmoi.hostname }}
     # Add Brew to $PATH
     eval "$({{ output "which" "brew" | trim }} shellenv)"
     {{- end }}
