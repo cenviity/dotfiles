@@ -15,11 +15,12 @@
 	name = Vincent Ging Ho Yim
 [core]
 	editor = code --wait
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	pager = delta
 [interactive]
-	diffFilter = diff-so-fancy --patch
-[diff-so-fancy]
-	stripLeadingSymbols = false
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	light = false
 [diff]
 	tool = vscode
 	colorMoved = dimmed-zebra
@@ -27,6 +28,7 @@
 	cmd = code --wait --diff $LOCAL $REMOTE
 [merge]
 	tool = vscode
+	conflictstyle = diff3
 [mergetool "vscode"]
 	cmd = code --wait --merge $MERGED
 [color]
