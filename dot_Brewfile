@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/services"
 tap "jandedobbeleer/oh-my-posh"
 brew "atuin"
+brew "bat"
 brew "chezmoi"
 brew "diff-so-fancy"
 brew "emacs", restart_service: true
