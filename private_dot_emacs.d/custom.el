@@ -22,3 +22,14 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+;; Disable `C-z` to prevent hiting it by accident.
+(global-unset-key (kbd "C-z"))
+;; Replace with `C-z C-z`.
+(global-set-key (kbd "C-z C-z") 'my-suspend-frame)
+(defun my-suspend-frame ()
+  "In a GUI environment, do nothing; otherwise `suspend-frame`."
+  (interactive)
+  (if (display-graphic-p)
+    (message "`suspend-frame` disabled for graphical displays")
+    (suspend-frame)))
