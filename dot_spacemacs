@@ -41,7 +41,8 @@ This function should only modify configuration layer settings."
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     git
+     (git :variables
+          git-enable-magit-delta-plugin t)
      helm
      ;; lsp
      ;; markdown
@@ -572,8 +573,6 @@ This function is called at the very end of Spacemacs startup, after layer
 configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
-  (setq-default dotspacemacs-configuration-layers
-                '((git :variables git-enable-magit-delta-plugin t)))
 )
 
 
