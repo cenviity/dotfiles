@@ -43,7 +43,8 @@ This function should only modify configuration layer settings."
      emacs-lisp
      (git :variables
           git-enable-magit-delta-plugin t
-          magit-repository-directories '(("~/.local/share/chezmoi" . 1)
+          magit-repository-directories '(("~/.emacs.d" . 1)
+                                         ("~/.local/share/chezmoi" . 1)
                                          ("~/exercism" . 1)))
      helm
      ;; lsp
