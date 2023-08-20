@@ -56,8 +56,10 @@ This function should only modify configuration layer settings."
      ;;        shell-default-position 'bottom)
      ;; spell-checking
      ;; syntax-checking
+     themes-megapack
+     treemacs
      ;; version-control
-     treemacs)
+    )
 
 
    ;; List of additional packages that will be installed without being wrapped
