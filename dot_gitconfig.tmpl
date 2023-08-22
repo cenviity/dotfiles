@@ -1,12 +1,12 @@
 [credential "https://github.com"]
 	{{- if eq .chezmoi.hostname "DSDU-Vincent-Yim" }}
 	helper =
-	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.32.1/bin/gh auth git-credential
+	helper = !{{ lookPath "gh" | trim }} auth git-credential
 	{{- end }}
 [credential "https://gist.github.com"]
 	{{- if eq .chezmoi.hostname "DSDU-Vincent-Yim" }}
 	helper =
-	helper = !/home/linuxbrew/.linuxbrew/Cellar/gh/2.32.1/bin/gh auth git-credential
+	helper = !{{ lookPath "gh" | trim }} auth git-credential
 	{{- end }}
 [init]
 	defaultBranch = main
