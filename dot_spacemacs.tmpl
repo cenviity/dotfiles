@@ -56,9 +56,7 @@ This function should only modify configuration layer settings."
      multiple-cursors
      ;; org
      {{- if eq "darwin" .chezmoi.os }}
-     (osx :variables
-          powerline-default-separator 'utf8
-          powerline-image-apple-rgb t)
+     osx
      {{- end }}
      (python :variables
              python-formatter 'black
@@ -272,7 +270,11 @@ It should only modify the values of Spacemacs settings."
    ;; refer to the DOCUMENTATION.org for more info on how to create your own
    ;; spaceline theme. Value can be a symbol or list with additional properties.
    ;; (default '(spacemacs :separator wave :separator-scale 1.5))
+   {{- if eq "darwin" .chezmoi.os }}
+   dotspacemacs-mode-line-theme '(spacemacs :separator utf-8 :separator-scale 1.5)
+   {{- else }}
    dotspacemacs-mode-line-theme '(spacemacs :separator wave :separator-scale 1.5)
+   {{- end }}
 
    ;; If non-nil the cursor color matches the state color in GUI Emacs.
    ;; (default t)
@@ -598,6 +600,9 @@ configuration.
 Put your configuration code here, except for variables that should be set
 before packages are loaded."
   (add-hook 'git-commit-mode-hook 'evil-insert-state)
+  {{- if eq "darwin" .chezmoi.os }}
+  (setq powerline-image-apple-rgb t)
+  {{- end }}
 )
 
 
