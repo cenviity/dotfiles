@@ -1,3 +1,6 @@
+set -gx PYENV_ROOT {{ .home }}/.pyenv
+set -gx VISUAL "code --wait"
+
 if status is-interactive
     # Commands to run in interactive sessions can go here
     {{- if contains "DSDU" .chezmoi.hostname }}
