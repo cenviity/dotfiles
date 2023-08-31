@@ -14,6 +14,7 @@ if type -q pyenv
 end
 
 # Set environment variables
+set -gx PAGER bat
 set -gx PYENV_ROOT {{ .home }}/.pyenv
 set -gx VISUAL "code --wait"
 
