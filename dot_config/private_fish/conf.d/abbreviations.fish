@@ -3,6 +3,10 @@ abbr dotdot --regex '^\.{2,}$' --function multicd
 abbr em 'emacs-gtk &'
 abbr omp 'oh-my-posh'
 
+# Replace `man`
+abbr man 'batman'
+abbr mann 'man'
+
 # chezmoi
 abbr cz 'chezmoi'
 abbr cza 'chezmoi apply'
