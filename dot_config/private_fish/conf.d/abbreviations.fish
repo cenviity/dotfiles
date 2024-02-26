@@ -49,3 +49,7 @@ abbr gpf 'git push --force-with-lease'
 abbr gpl 'git pull'
 abbr gs 'git status'
 abbr gsh 'git show'
+
+# dbt-cloud
+abbr d '/opt/homebrew/bin/dbt'
+abbr dbt-cloud '/opt/homebrew/bin/dbt'
