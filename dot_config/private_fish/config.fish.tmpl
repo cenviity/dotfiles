@@ -24,6 +24,9 @@ set -gx VISUAL "code --wait"
 if status is-interactive
     # Commands to run in interactive sessions can go here
 
+    # Disable default fish greeting
+    set -g fish_greeting
+
     # Initiate atuin
     if type -q atuin
         set -gx ATUIN_NOBIND "true"
