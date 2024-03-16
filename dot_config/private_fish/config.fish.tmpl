@@ -1,6 +1,6 @@
 fish_add_path {{ .home }}/.local/bin {{ .home }}/.pyenv/bin {{ .home }}/bin
 
-{{ if contains "cenvii" .chezmoi.hostname }}
+{{ if contains "cenvii" .chezmoi.hostname -}}
 # Add Brew to $PATH
 fish_add_path /opt/homebrew/bin
 {{- else if contains "DSDU" .chezmoi.hostname -}}
