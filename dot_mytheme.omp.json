@@ -152,7 +152,7 @@
   "transient_prompt": {
     "foreground": "p:black",
     "background": "transparent",
-    "template": "<p:yellow,transparent></><,p:yellow> {{ .Folder }} </><p:yellow,transparent></> "
+    "template": "<p:orange,transparent></><,p:orange> {{ .Folder }} </><p:orange,transparent></> "
   },
   "secondary_prompt": {
     "foreground": "p:black",
