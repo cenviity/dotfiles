@@ -27,7 +27,25 @@
           "template": "  {{ .Path }} ",
           "properties": {
             "style": "agnoster_short",
-            "max_depth": 2
+            "max_depth": 2,
+            "exclude_folders": [
+              "~/.local/share/chezmoi.*"
+            ]
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "p:white",
+          "background": "p:red",
+          "template": "  {{ .Path }} ",
+          "properties": {
+            "style": "agnoster_short",
+            "max_depth": 2,
+            "include_folders": [
+              "~/.local/share/chezmoi.*"
+            ]
           }
         },
         {
