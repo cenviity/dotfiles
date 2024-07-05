@@ -43,6 +43,11 @@ if status is-interactive
         zoxide init fish | source
     end
 
+    # Initiate Jujutsu
+    if type -q jj
+        jj util completion fish | source
+    end
+
     # Disable Python virtual environment name being shown (shown with oh-my-posh instead)
     set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 
