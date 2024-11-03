@@ -77,7 +77,8 @@
           "properties": {
             "branch_max_length": 25,
             "fetch_status": true,
-            "fetch_upstream_icon": true
+            "fetch_upstream_icon": true,
+            "commit_icon": " "
           }
         },
         {
