@@ -51,7 +51,11 @@ if status is-interactive
 
     # Initiate Jujutsu
     if type -q jj
-        jj util completion fish | source
+        # Static completions
+        # jj util completion fish | source
+
+        # Dynamic completions
+        COMPLETE=fish jj | source
     end
 
     # Disable Python virtual environment name being shown (shown with oh-my-posh instead)
