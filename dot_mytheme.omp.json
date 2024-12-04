@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "version": 2,
+  "version": 3,
   "final_space": true,
   "console_title_template": "{{ .Shell }} in {{ .Folder }}",
   "blocks": [
@@ -15,8 +15,10 @@
           "foreground": "p:black",
           "background": "p:yellow",
           "leading_diamond": "",
-          "trailing_diamond": "",
-          "template": " {{ if .SSHSession }} {{ end }}{{ .UserName }} "
+          "template": " {{ if .SSHSession }} {{ end }}{{ .UserName }} ",
+          "properties": {
+            "cache_duration": "none"
+          }
         },
         {
           "type": "path",
@@ -25,12 +27,13 @@
           "foreground": "p:white",
           "background": "p:orange",
           "template": "  {{ .Path }} ",
+          "exclude_folders": [
+            "~/.local/share/chezmoi.*"
+          ],
           "properties": {
             "style": "agnoster_short",
-            "max_depth": 2,
-            "exclude_folders": [
-              "~/.local/share/chezmoi.*"
-            ]
+            "cache_duration": "none",
+            "max_depth": 2
           }
         },
         {
@@ -40,12 +43,13 @@
           "foreground": "p:white",
           "background": "p:red",
           "template": "  {{ .Path }} ",
+          "include_folders": [
+            "~/.local/share/chezmoi.*"
+          ],
           "properties": {
             "style": "agnoster_short",
-            "max_depth": 2,
-            "include_folders": [
-              "~/.local/share/chezmoi.*"
-            ]
+            "cache_duration": "none",
+            "max_depth": 2
           }
         },
         {
@@ -56,6 +60,7 @@
           "background": "#906cff",
           "template": "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} ",
           "properties": {
+            "cache_duration": "none",
             "display_mode": "context"
           }
         },
@@ -79,6 +84,7 @@
           "template": " {{ if .UpstreamURL }}{{ url .UpstreamIcon .UpstreamURL }} {{ end }}{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} ",
           "properties": {
             "branch_max_length": 25,
+            "cache_duration": "none",
             "fetch_status": true,
             "fetch_upstream_icon": true,
             "commit_icon": " "
@@ -90,7 +96,10 @@
           "powerline_symbol": "",
           "foreground": "p:white",
           "background": "p:yellow",
-          "template": "  "
+          "template": "  ",
+          "properties": {
+            "cache_duration": "none"
+          }
         },
         {
           "type": "status",
@@ -100,11 +109,11 @@
           "background_templates": [
             "{{ if gt .Code 0 }}p:red{{ end }}"
           ],
-          "leading_diamond": "",
           "trailing_diamond": "",
           "template": " {{ if gt .Code 0 }}{{ else }}{{ end }} ",
           "properties": {
-            "always_enabled": true
+            "always_enabled": true,
+            "cache_duration": "none"
           }
         }
       ]
@@ -115,26 +124,30 @@
       "newline": true,
       "segments": [
         {
-          "background": "#29315A",
+          "type": "executiontime",
+          "style": "diamond",
           "foreground": "#AEA4BF",
+          "background": "#29315A",
           "leading_diamond": "",
+          "trailing_diamond": " ",
+          "template": "{{ .FormattedMs }}",
           "properties": {
+            "cache_duration": "none",
             "style": "austin",
             "threshold": 150
-          },
-          "style": "diamond",
-          "template": "{{ .FormattedMs }}",
-          "trailing_diamond": " ",
-          "type": "executiontime"
+          }
         },
         {
-          "background": "#29315A",
-          "foreground": "#7FD5EA",
-          "leading_diamond": "",
+          "type": "text",
           "style": "diamond",
-          "template": "❯",
+          "foreground": "#7FD5EA",
+          "background": "#29315A",
+          "leading_diamond": "",
           "trailing_diamond": "",
-          "type": "text"
+          "template": "❯",
+          "properties": {
+            "cache_duration": "none"
+          }
         }
       ]
     }
