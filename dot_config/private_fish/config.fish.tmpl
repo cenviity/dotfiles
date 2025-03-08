@@ -1,4 +1,4 @@
-fish_add_path {{ .home }}/.local/bin {{ .home }}/.pyenv/bin {{ .home }}/bin
+fish_add_path {{ .home }}/.local/bin {{ .home }}/bin
 
 {{ if contains "cenvii" .chezmoi.hostname -}}
 # Add Brew to $PATH
@@ -17,14 +17,8 @@ fish_add_path 'C:\Program Files\gg\'
 # Add `sphinx-doc` to $PATH
 fish_add_path /opt/homebrew/opt/sphinx-doc/bin
 
-# Initiate pyenv
-if type -q pyenv
-    pyenv init - | source
-end
-
 # Set environment variables
 set -gx PAGER bat
-set -gx PYENV_ROOT {{ .home }}/.pyenv
 set -gx VISUAL "code --wait"
 
 if status is-interactive
