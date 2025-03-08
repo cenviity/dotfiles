@@ -10,6 +10,9 @@ merge-editor = "vscode"
 # pager = "delta"
 pager = ["less", "-FRX"]
 
+[hints]
+resolving-conflicts = false
+
 [colors]
 # Highlight hunks with background
 "diff removed token" = { bg = "#221111", underline = false }
