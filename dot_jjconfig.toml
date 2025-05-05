@@ -10,7 +10,8 @@ default-command = "log"
 diff-editor = ":builtin"
 merge-editor = "vscode"
 # pager = "delta"
-pager = ["less", "-FRX"]
+# pager = ["less", "-FRX"]
+pager = ":builtin"
 
 [hints]
 resolving-conflicts = false
