@@ -27,25 +27,6 @@
           "foreground": "p:white",
           "background": "p:orange",
           "template": "  {{ .Path }} ",
-          "exclude_folders": [
-            "~/.local/share/chezmoi.*"
-          ],
-          "properties": {
-            "style": "agnoster_short",
-            "cache_duration": "none",
-            "max_depth": 2
-          }
-        },
-        {
-          "type": "path",
-          "style": "powerline",
-          "powerline_symbol": "",
-          "foreground": "p:white",
-          "background": "p:red",
-          "template": "  {{ .Path }} ",
-          "include_folders": [
-            "~/.local/share/chezmoi.*"
-          ],
           "properties": {
             "style": "agnoster_short",
             "cache_duration": "none",
