@@ -7,11 +7,18 @@ email = "cenviity@gmail.com"
 [ui]
 default-command = "log"
 # diff.format = "git"
+{{- if lookPath "difft" }}
+diff.tool = "difft"
+{{- end }}
 diff-editor = ":builtin"
 merge-editor = "vscode"
 # pager = "delta"
 # pager = ["less", "-FRX"]
 pager = ":builtin"
+
+[merge-tools.difft]
+diff-args = ["--color=always", "$left", "$right"]
+diff-invocation-mode = "file-by-file"
 
 [hints]
 resolving-conflicts = false
