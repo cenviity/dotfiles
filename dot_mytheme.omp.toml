@@ -37,7 +37,7 @@ style = "powerline"
 powerline_symbol = ""
 foreground = "#100e23"
 background = "#906cff"
-template = "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ .Venv }} {{ end }}{{ .Full }}{{ end }} "
+template = "  {{ if .Error }}{{ .Error }}{{ else }}{{ if .Venv }}{{ abbrev 6 .Venv }} {{ end }}{{ .Full }}{{ end }} "
 
 [blocks.segments.properties]
 cache_duration = "none"
