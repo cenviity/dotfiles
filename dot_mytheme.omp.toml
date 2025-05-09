@@ -28,9 +28,8 @@ background = "p:orange"
 template = " {{ .Path }} "
 
 [blocks.segments.properties]
-style = "agnoster_short"
+style = "unique"
 cache_duration = "none"
-max_depth = 2
 
 [[blocks.segments]]
 type = "python"
