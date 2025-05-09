@@ -61,7 +61,7 @@ background_templates = [
   "{{ if gt .Ahead 0 }}#49416D{{ end }}",
   "{{ if gt .Behind 0 }}#7A306C{{ end }}",
 ]
-template = " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
+template = " {{ if .Detached }} {{ trunc 8 .Commit.Sha }}{{ else }}{{ .HEAD }}{{ end }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}{{ if not .Detached }} {{ end }} {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
 
 [blocks.segments.properties]
 branch_max_length = 25
