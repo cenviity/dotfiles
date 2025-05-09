@@ -25,7 +25,7 @@ style = "powerline"
 powerline_symbol = ""
 foreground = "p:white"
 background = "p:orange"
-template = "  {{ .Path }} "
+template = " {{ .Path }} "
 
 [blocks.segments.properties]
 style = "agnoster_short"
