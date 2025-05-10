@@ -28,6 +28,10 @@ resolving-conflicts = false
 "diff removed token" = { bg = "#221111", underline = false }
 "diff added token" = { bg = "#002200", underline = false }
 
+[revset-aliases]
+# See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
+default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
+
 [aliases]
 ci = ["commit"]
 nc = ["next", "--conflict"]
