@@ -61,32 +61,6 @@ template = " jj  {{.ChangeID}}{{if .Working.Changed}}  {{ .Working.S
 fetch_status = true
 
 [[blocks.segments]]
-type = "git"
-style = "powerline"
-powerline_symbol = ""
-foreground = "p:black"
-foreground_templates = [
-  "{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}",
-  "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:white{{ end }}",
-  "{{ if gt .Ahead 0 }}p:white{{ end }}",
-]
-background = "p:green"
-background_templates = [
-  "{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}",
-  "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:red{{ end }}",
-  "{{ if gt .Ahead 0 }}#49416D{{ end }}",
-  "{{ if gt .Behind 0 }}#7A306C{{ end }}",
-]
-template = "  {{ trunc 7 .Segments.Git.Commit.Sha }} "
-
-[blocks.segments.properties]
-branch_max_length = 25
-cache_duration = "none"
-fetch_status = true
-fetch_upstream_icon = true
-commit_icon = " "
-
-[[blocks.segments]]
 type = "root"
 style = "powerline"
 powerline_symbol = ""
