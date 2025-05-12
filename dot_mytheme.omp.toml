@@ -44,6 +44,23 @@ cache_duration = "none"
 display_mode = "context"
 
 [[blocks.segments]]
+type = "jujutsu"
+style = "powerline"
+powerline_symbol = ""
+foreground = "p:black"
+foreground_templates = [
+  "{{ if or (.Working.Changed) (.Staging.Changed) }}p:black{{ end }}",
+]
+background = "p:green"
+background_templates = [
+  "{{ if or (.Working.Changed) (.Staging.Changed) }}p:yellow{{ end }}",
+]
+template = " jj  {{.ChangeID}}{{if .Working.Changed}}  {{ .Working.String }}{{ end }} "
+
+[blocks.segments.properties]
+fetch_status = true
+
+[[blocks.segments]]
 type = "git"
 style = "powerline"
 powerline_symbol = ""
@@ -60,7 +77,7 @@ background_templates = [
   "{{ if gt .Ahead 0 }}#49416D{{ end }}",
   "{{ if gt .Behind 0 }}#7A306C{{ end }}",
 ]
-template = " {{ if .Detached }} {{ trunc 8 .Commit.Sha }}{{ else }}{{ .HEAD }}{{ end }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}{{ if not .Detached }} {{ end }} {{ .Working.String }}{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
+template = "  {{ trunc 7 .Segments.Git.Commit.Sha }} "
 
 [blocks.segments.properties]
 branch_max_length = 25
