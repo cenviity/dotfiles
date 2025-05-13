@@ -28,10 +28,35 @@ resolving-conflicts = false
 "diff removed token" = { bg = "#221111", underline = false }
 "diff added token" = { bg = "#002200", underline = false }
 
+[templates]
+log = "builtin_log_compact__wip"
+
 [revset-aliases]
 # See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
 default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
 private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
+# Revisions including and after the closest described revision
+wip_branch = "heads(::@ ~ description(exact:''))::@ & mutable()"
+
+[template-aliases]
+builtin_log_compact__wip = '''
+if(root,
+  format_root_commit(self),
+  label(if(current_working_copy, "working_copy"),
+    concat(
+      format_short_commit_header(self) ++ "\n",
+      separate(" ",
+        if(empty, label("empty", "(empty)")),
+        if(description,
+          description.first_line(),
+          label(if(empty, "empty"), description_placeholder),
+        ),
+      ) ++ "\n",
+      if(self.contained_in("wip_branch"), diff.summary()),
+    ),
+  )
+)
+'''
 
 [aliases]
 ci = ["commit"]
@@ -48,9 +73,6 @@ watch = [
     "-c",
     "hwatch --color --no-title --interval 1 jj log --color always",
 ]
-
-[template-aliases]
-# "format_short_signature(signature)" = "signature.username()"
 
 [gg.ui]
 theme-override = "dark"
