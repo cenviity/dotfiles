@@ -38,6 +38,15 @@ nc = ["next", "--conflict"]
 pc = ["prev", "--conflict"]
 rb = ["rebase"]
 sq = ["squash"]
+w = ["watch"]
+watch = [
+    "util",
+    "exec",
+    "--",
+    "sh",
+    "-c",
+    "hwatch --color --no-title --interval 1 jj log --color always",
+]
 
 [template-aliases]
 # "format_short_signature(signature)" = "signature.username()"
