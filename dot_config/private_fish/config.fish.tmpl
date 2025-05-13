@@ -9,6 +9,9 @@ fish_add_path /Applications/gg.app/Contents/MacOS/
 {{- else if contains "DSDU" .chezmoi.hostname -}}
 # Add Brew to $PATH
 eval "$({{ output "which" "brew" | trim }} shellenv)"
+
+# Add `code` to $PATH
+fish_add_path "/mnt/c/Users/VincentYim/AppData/Local/Programs/Microsoft VS Code/bin"
 {{- end }}
 
 # Add `sphinx-doc` to $PATH
