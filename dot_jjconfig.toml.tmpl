@@ -46,6 +46,51 @@ watch = [
 log = "builtin_log_compact__wip"
 
 [template-aliases]
+"format_timestamp_relative_bare(timestamp)" = "timestamp.ago().remove_suffix(' ago').remove_suffix('s')"
+"format_timestamp_relative_short(s)" = '''
+coalesce(
+    if(
+        s.ends_with(" second"),
+        s.remove_suffix(" second") ++ label("timestamp", "s")
+    ),
+    if(
+        s.ends_with(" minute"),
+        s.remove_suffix(" minute") ++ label("timestamp", "m")
+    ),
+    if(
+        s.ends_with(" hour"),
+        s.remove_suffix(" hour") ++ label("timestamp", "h")
+    ),
+    if(
+        s.ends_with(" day"),
+        s.remove_suffix(" day") ++ label("timestamp", "d")
+    ),
+    if(
+        s.ends_with(" week"),
+        s.remove_suffix(" week") ++ label("timestamp", "w")
+    ),
+    if(
+        s.ends_with(" month"),
+        s.remove_suffix(" month") ++ label("timestamp", "m")
+    ),
+    if(
+        s.ends_with(" year"),
+        s.remove_suffix(" year") ++ label("timestamp", "y")
+    ),
+    s
+)
+'''
+"format_timestamp_long(timestamp)" = "timestamp.format('%Y-%m-%d %H:%M:%S')"
+"format_timestamp(timestamp)" = '''
+separate(
+    " ",
+    format_timestamp_relative_short(format_timestamp_relative_bare(timestamp)),
+    if(
+        timestamp.before("1 week ago"),
+        surround("(", ")", format_timestamp_long(timestamp))
+    )
+)
+'''
 builtin_log_compact__wip = '''
 if(root,
   format_root_commit(self),
