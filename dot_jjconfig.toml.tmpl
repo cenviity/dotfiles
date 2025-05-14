@@ -31,6 +31,7 @@ resolving-conflicts = false
 [revset-aliases]
 # See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
 default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
+private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
 
 [aliases]
 ci = ["commit"]
