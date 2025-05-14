@@ -1,14 +1,14 @@
 # General
 abbr dotdot --regex '^\.{2,}$' --function multicd
 abbr em 'emacs-gtk &'
-abbr omp 'oh-my-posh'
+abbr omp oh-my-posh
 
 # Replace `man`
-abbr man 'batman'
-abbr mann 'man'
+abbr man batman
+abbr mann man
 
 # chezmoi
-abbr cz 'chezmoi'
+abbr cz chezmoi
 abbr cza 'chezmoi apply'
 abbr czaa 'chezmoi add'
 abbr czc 'chezmoi cd'
@@ -22,17 +22,17 @@ abbr czum 'chezmoi unmanaged'
 abbr czv 'chezmoi verify'
 
 # Python
-abbr py 'python'
-abbr ptp 'ptpython'
-abbr pti 'ptipython'
+abbr py python
+abbr ptp ptpython
+abbr pti ptipython
 
 # Python venv
 abbr v 'source .venv/bin/activate.fish'
 abbr vv '..; source .venv/bin/activate.fish; prevd'
-abbr dv 'deactivate'
+abbr dv deactivate
 
 # Git
-abbr g 'git'
+abbr g git
 abbr ga 'git add'
 abbr gc 'git commit -v'
 abbr gc! 'git commit -v --amend'
@@ -55,5 +55,5 @@ abbr gsh 'git show'
 abbr --command jj --position anywhere -- -C --color-words
 
 # dbt-cloud
-abbr d '/opt/homebrew/bin/dbt'
-abbr dbt-cloud '/opt/homebrew/bin/dbt'
+abbr d /opt/homebrew/bin/dbt
+abbr dbt-cloud /opt/homebrew/bin/dbt
