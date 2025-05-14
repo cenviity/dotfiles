@@ -85,7 +85,13 @@ coalesce(
 "format_timestamp(timestamp)" = '''
 separate(
     " ",
-    format_timestamp_relative_short(format_timestamp_relative_bare(timestamp)),
+    coalesce(
+        if(
+            timestamp.after("1 minute ago"),
+            label("timestamp", "<=1m")
+        ),
+        format_timestamp_relative_short(format_timestamp_relative_bare(timestamp))
+    ),
     if(
         timestamp.before("1 week ago"),
         surround("(", ")", format_timestamp_long(timestamp))
