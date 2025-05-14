@@ -36,7 +36,7 @@ log = "builtin_log_compact__wip"
 default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
 private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
 # Revisions including and after the closest described revision
-wip_branch = "heads(::@ ~ description(exact:''))::@ & mutable()"
+wip_branch = "heads(::@ ~ description(exact:'') ~ private-commits)::@ & mutable()"
 
 [template-aliases]
 builtin_log_compact__wip = '''
