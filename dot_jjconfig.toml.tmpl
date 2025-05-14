@@ -83,8 +83,7 @@ coalesce(
 '''
 "format_timestamp_long(timestamp)" = "timestamp.format('%Y-%m-%d %H:%M:%S')"
 "format_timestamp(timestamp)" = '''
-separate(
-    " ",
+concat(
     coalesce(
         if(
             timestamp.after("1 minute ago"),
@@ -94,7 +93,7 @@ separate(
     ),
     if(
         timestamp.before("1 week ago"),
-        surround("(", ")", format_timestamp_long(timestamp))
+        ", " ++ format_timestamp_long(timestamp)
     )
 )
 '''
