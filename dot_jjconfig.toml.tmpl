@@ -26,15 +26,24 @@ resolving-conflicts = false
 "diff removed token" = { bg = "#221111", underline = false }
 "diff added token" = { bg = "#002200", underline = false }
 
+[aliases]
+ci = ["commit"]
+nc = ["next", "--conflict"]
+pc = ["prev", "--conflict"]
+rb = ["rebase"]
+sq = ["squash"]
+w = ["watch"]
+watch = [
+    "util",
+    "exec",
+    "--",
+    "sh",
+    "-c",
+    "hwatch --color --no-title --interval 1 jj log --color always",
+]
+
 [templates]
 log = "builtin_log_compact__wip"
-
-[revset-aliases]
-# See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
-default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
-private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
-# Revisions including and after the closest described revision
-wip_branch = "heads(::@- ~ description(exact:'') ~ private-commits)::@ & mutable()"
 
 [template-aliases]
 builtin_log_compact__wip = '''
@@ -56,21 +65,12 @@ if(root,
 )
 '''
 
-[aliases]
-ci = ["commit"]
-nc = ["next", "--conflict"]
-pc = ["prev", "--conflict"]
-rb = ["rebase"]
-sq = ["squash"]
-w = ["watch"]
-watch = [
-    "util",
-    "exec",
-    "--",
-    "sh",
-    "-c",
-    "hwatch --color --no-title --interval 1 jj log --color always",
-]
+[revset-aliases]
+# See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
+default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
+private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
+# Revisions including and after the closest described revision
+wip_branch = "heads(::@- ~ description(exact:'') ~ private-commits)::@ & mutable()"
 
 [gg.ui]
 theme-override = "dark"
