@@ -43,15 +43,15 @@ builtin_log_compact__wip = '''
 if(root,
   format_root_commit(self),
   label(if(current_working_copy, "working_copy"),
-    concat(
-      format_short_commit_header(self) ++ "\n",
+    separate("\n",
+      format_short_commit_header(self),
       separate(" ",
         if(empty, label("empty", "(empty)")),
         if(description,
           description.first_line(),
           label(if(empty, "empty"), description_placeholder),
         ),
-      ) ++ "\n",
+      ),
       if(self.contained_in("wip_branch"), diff.summary()),
     ),
   )
