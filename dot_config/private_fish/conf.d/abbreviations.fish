@@ -51,6 +51,9 @@ abbr gpl 'git pull'
 abbr gs 'git status'
 abbr gsh 'git show'
 
+# jj
+abbr --command jj --position anywhere -- -C --color-words
+
 # dbt-cloud
 abbr d '/opt/homebrew/bin/dbt'
 abbr dbt-cloud '/opt/homebrew/bin/dbt'
