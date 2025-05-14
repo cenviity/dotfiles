@@ -72,7 +72,7 @@ coalesce(
     ),
     if(
         s.ends_with(" month"),
-        s.remove_suffix(" month") ++ label("timestamp", "m")
+        s.remove_suffix(" month") ++ label("timestamp", "mo")
     ),
     if(
         s.ends_with(" year"),
