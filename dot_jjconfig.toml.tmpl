@@ -81,7 +81,8 @@ coalesce(
     s
 )
 '''
-"format_timestamp_long(timestamp)" = "timestamp.format('%Y-%m-%d %H:%M:%S')"
+# Taken from the default `format_timestamp(timestamp)`
+"format_timestamp_long(timestamp)" = "timestamp.local().format('%Y-%m-%d %H:%M:%S')"
 "format_timestamp(timestamp)" = '''
 concat(
     coalesce(
