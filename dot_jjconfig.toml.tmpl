@@ -47,7 +47,6 @@ watch = [
 log = "builtin_log_compact__wip"
 
 [template-aliases]
-"format_timestamp_relative_bare(timestamp)" = "timestamp.ago().remove_suffix(' ago').remove_suffix('s')"
 "abbreviate_relative_timestamp(s)" = '''
 coalesce(
     if(
@@ -90,7 +89,7 @@ concat(
             timestamp.after("1 minute ago"),
             label("timestamp", "<=1m")
         ),
-        abbreviate_relative_timestamp(format_timestamp_relative_bare(timestamp))
+        abbreviate_relative_timestamp(timestamp.ago().remove_suffix(' ago').remove_suffix('s'))
     ),
     if(
         timestamp.before("1 week ago"),
