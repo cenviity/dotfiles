@@ -48,7 +48,7 @@ log = "builtin_log_compact__wip"
 
 [template-aliases]
 "format_timestamp_relative_bare(timestamp)" = "timestamp.ago().remove_suffix(' ago').remove_suffix('s')"
-"format_timestamp_relative_short(s)" = '''
+"abbreviate_relative_timestamp(s)" = '''
 coalesce(
     if(
         s.ends_with(" second"),
@@ -90,7 +90,7 @@ concat(
             timestamp.after("1 minute ago"),
             label("timestamp", "<=1m")
         ),
-        format_timestamp_relative_short(format_timestamp_relative_bare(timestamp))
+        abbreviate_relative_timestamp(format_timestamp_relative_bare(timestamp))
     ),
     if(
         timestamp.before("1 week ago"),
