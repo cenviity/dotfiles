@@ -50,6 +50,10 @@ log = "builtin_log_compact__wip"
 "abbreviate_relative_timestamp(s)" = '''
 coalesce(
     if(
+        s.ends_with(" millisecond"),
+        s.remove_suffix(" millisecond") ++ label("timestamp", "ms")
+    ),
+    if(
         s.ends_with(" second"),
         s.remove_suffix(" second") ++ label("timestamp", "s")
     ),
