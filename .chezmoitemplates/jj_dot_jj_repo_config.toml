@@ -1,0 +1,17 @@
+[git]
+fetch = ["origin", "upstream"]
+private-commits = "private-commits"
+
+[revsets]
+log = "ancestors(main@origin..(present(trunk()) | @), 2)"
+# log = "ancestors(present(trunk()) | fork_point(trunk() | @)::, 2)"
+# log = "(trunk() | main@origin)::mutable() | fork_point(trunk() | @)::@"
+# log = "(trunk() | main@origin)::mutable()"
+# log = "tracked_remote_branches()::(trunk() | mutable())"
+# log = "trunk() | reachable(tracked_remote_branches(), trunk()::) | (remote_branches(remote=upstream)..@)::"
+# log = "trunk() | reachable(@, main..)"
+
+[revset-aliases]
+
+[aliases]
+# "tracked_remote_roots()" = "roots(main..tracked_remote_branches())"

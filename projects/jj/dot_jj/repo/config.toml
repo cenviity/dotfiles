@@ -1,0 +1,1 @@
+{{- template "jj_dot_jj_repo_config.toml" . -}}

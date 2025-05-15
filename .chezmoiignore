@@ -1,3 +1,6 @@
+{{ if not (or (contains "cenvii" .chezmoi.hostname) (contains "DSDU" .chezmoi.hostname)) -}}
+projects/jj/.jj/repo/config.toml
+{{- end }}
 {{- if ne .chezmoi.os "linux" }}
 .hushlogin
 {{- end }}
