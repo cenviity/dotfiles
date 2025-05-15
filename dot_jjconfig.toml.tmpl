@@ -67,12 +67,13 @@ coalesce(
 # Taken from the default `format_timestamp(timestamp)`
 "format_timestamp_long(timestamp)" = "timestamp.local().format('%Y-%m-%d %H:%M:%S')"
 "format_timestamp(timestamp)" = '''
-concat(
+separate(
+    ", ",
     coalesce(
         if(timestamp.after("1 minute ago"), label("timestamp", "<=1m")),
         abbreviate_relative_timestamp(timestamp.ago().remove_suffix(' ago').remove_suffix('s'))
     ),
-    if(timestamp.before("1 week ago"), ", " ++ format_timestamp_long(timestamp))
+    if(timestamp.before("1 week ago"), format_timestamp_long(timestamp))
 )
 '''
 # For op log timestamps
