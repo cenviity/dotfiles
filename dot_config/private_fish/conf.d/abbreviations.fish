@@ -53,6 +53,7 @@ abbr gsh 'git show'
 
 # jj
 abbr --command jj --position anywhere -- -C --color-words
+abbr --command jj --position anywhere -- -I --ignore-immutable
 
 # dbt-cloud
 abbr d /opt/homebrew/bin/dbt
