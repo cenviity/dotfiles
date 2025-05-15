@@ -101,6 +101,14 @@ concat(
     )
 )
 '''
+# For op log timestamps
+"format_time_range(time_range)" = '''
+concat(
+    abbreviate_relative_timestamp(time_range.end().ago().remove_suffix(' ago').remove_suffix('s')),
+    label("time", ", lasted "),
+    abbreviate_relative_timestamp(time_range.duration().remove_suffix('s'))
+)
+'''
 builtin_log_compact__wip = '''
 if(
     root,
