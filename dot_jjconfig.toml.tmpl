@@ -69,16 +69,10 @@ coalesce(
 "format_timestamp(timestamp)" = '''
 concat(
     coalesce(
-        if(
-            timestamp.after("1 minute ago"),
-            label("timestamp", "<=1m")
-        ),
+        if(timestamp.after("1 minute ago"), label("timestamp", "<=1m")),
         abbreviate_relative_timestamp(timestamp.ago().remove_suffix(' ago').remove_suffix('s'))
     ),
-    if(
-        timestamp.before("1 week ago"),
-        ", " ++ format_timestamp_long(timestamp)
-    )
+    if(timestamp.before("1 week ago"), ", " ++ format_timestamp_long(timestamp))
 )
 '''
 # For op log timestamps
