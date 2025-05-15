@@ -36,14 +36,10 @@ pc = ["prev", "--conflict"]
 rb = ["rebase"]
 sq = ["squash"]
 w = ["watch"]
-watch = [
-    "util",
-    "exec",
-    "--",
-    "sh",
-    "-c",
-    "hwatch --color --no-title --interval 1 jj log --color always",
-]
+watch = ["util", "exec", "--", "sh", "-c", '''
+    #!/usr/bin/env sh
+    hwatch --color --no-title --interval 1 -- jj log --color always "$@"
+    ''', ""]
 
 [templates]
 log = "builtin_log_compact__wip"
