@@ -18,7 +18,14 @@ fish_add_path "/mnt/c/Users/VincentYim/AppData/Local/Programs/Microsoft VS Code/
 fish_add_path /opt/homebrew/opt/sphinx-doc/bin
 
 # Set environment variables
-set -gx PAGER bat
+if type -q sp
+    # Use `streampager` if available
+    set -gx PAGER sp
+else if type -q bat
+    set -gx PAGER bat
+else
+    set -gx PAGER "less -FRX"
+end
 set -gx VISUAL "code --wait"
 
 if status is-interactive
