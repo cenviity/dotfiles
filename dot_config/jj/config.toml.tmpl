@@ -41,6 +41,9 @@ watch = ["util", "exec", "--", "sh", "-c", '''
     hwatch --color --no-title --interval 1 -- jj log --color always $@
     ''', ""]
 
+[snapshot]
+auto-update-stale = true
+
 [templates]
 log = "builtin_log_compact__wip"
 
