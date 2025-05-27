@@ -24,6 +24,7 @@ resolving-conflicts = false
 # Highlight hunks with background
 "diff removed token" = { bg = "#221111", underline = false }
 "diff added token" = { bg = "#002200", underline = false }
+"description_multiline" = "blue"
 
 [aliases]
 a = ["abandon"]
@@ -101,7 +102,14 @@ if(
                 if(empty, label("empty", "(empty)")),
                 if(
                     description,
-                    description.first_line(),
+                    separate(
+                        " ",
+                        description.first_line(),
+                        if(
+                            description.trim_end() != description.first_line(),
+                            label("description_multiline", "[…]")
+                        )
+                    ),
                     label(if(empty, "empty"), description_placeholder),
                 ),
             ),
