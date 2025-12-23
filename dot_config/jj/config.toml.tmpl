@@ -61,7 +61,7 @@ auto-update-stale = true
 # See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
 default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
 
-private_commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
+private_commits = "mine() & (description(glob-i:'wip:*') | description(glob-i:'private:*'))"
 
 # Revisions including and after the closest described revision
 wip_branch = "heads(::@- ~ description(exact:'') ~ private_commits):: & mutable()"
