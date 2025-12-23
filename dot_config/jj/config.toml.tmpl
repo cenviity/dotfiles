@@ -45,6 +45,14 @@ watch = ["util", "exec", "--", "sh", "-c", '''
 [snapshot]
 auto-update-stale = true
 
+[revset-aliases]
+# See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
+default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
+private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
+# Revisions including and after the closest described revision
+wip_branch = "heads(::@- ~ description(exact:'') ~ private-commits):: & mutable()"
+"desc(pattern)" = "description(pattern)"
+
 [templates]
 log = "builtin_log_compact__wip"
 
@@ -118,14 +126,6 @@ if(
     )
 )
 '''
-
-[revset-aliases]
-# See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
-default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
-private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
-# Revisions including and after the closest described revision
-wip_branch = "heads(::@- ~ description(exact:'') ~ private-commits):: & mutable()"
-"desc(pattern)" = "description(pattern)"
 
 [gg.ui]
 theme-override = "dark"
