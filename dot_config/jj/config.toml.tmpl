@@ -37,6 +37,10 @@ p = ["prev"]
 pc = ["prev", "--conflict"]
 rb = ["rebase"]
 sq = ["squash"]
+
+# Based on https://github.com/jj-vcs/jj/discussions/5568#discussioncomment-12674748
+tug = ["bookmark", "move", "--from=closest_bookmarks()", "--to=closest_pushable()"]
+
 w = ["watch"]
 watch = ["util", "exec", "--", "sh", "-c", '''
     hwatch --color --no-title --interval 1 -- jj log --color always $@
@@ -46,9 +50,17 @@ watch = ["util", "exec", "--", "sh", "-c", '''
 auto-update-stale = true
 
 [revset-aliases]
+# Based on https://github.com/jj-vcs/jj/discussions/5568#discussioncomment-12674748
+"closest_bookmarks()" = "closest_bookmarks(@-)"
+"closest_bookmarks(to)" = "heads(::to & bookmarks())"
+"closest_pushable()" = "closest_pushable(@-)"
+"closest_pushable(to)" = "heads(::to ~ description(exact:'')) & (~empty() | merges())"
+
 # See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
 default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
+
 private_commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
+
 # Revisions including and after the closest described revision
 wip_branch = "heads(::@- ~ description(exact:'') ~ private_commits):: & mutable()"
 "desc(pattern)" = "description(pattern)"
