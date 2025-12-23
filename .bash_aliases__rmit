@@ -1,0 +1,11 @@
+# Add `chezmoi` aliases.
+alias cz=chezmoi
+
+# Add `eza` aliases.
+alias lss=ls
+alias ls=eza
+alias la="eza --icons -la"
+alias latr="la --sort modified"
+
+# Add `dbt-cloud` alias.
+alias dbt-cloud="$HOME/.local/bin/dbt"

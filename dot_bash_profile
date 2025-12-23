@@ -7,20 +7,11 @@ test -f ~/.bashrc && . ~/.bashrc
 # Add Cargo binaries.
 PATH="$HOME/.cargo/bin:$PATH"
 
-# Add `chezmoi` aliases.
-alias cz=chezmoi
-
-# Add `eza` aliases.
-alias lss=ls
-alias ls=eza
-alias la="eza --icons -la"
-alias latr="la --sort modified"
+# Add aliases.
+source $HOME/.bash_aliases
 
 # Add `br` shell function for `broot`.
 source <(broot --print-shell-function bash)
-
-# Add `dbt-cloud` alias.
-alias dbt-cloud="$HOME/.local/bin/dbt"
 
 # Add `chezmoi` shell completions.
 source <(chezmoi completion bash)

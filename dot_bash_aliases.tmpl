@@ -1,0 +1,5 @@
+{{ if contains "RMIT" .chezmoi.username -}}
+{{   include ".bash_aliases__rmit" -}}
+{{ else -}}
+{{   include ".bash_aliases__other" -}}
+{{ end -}}
