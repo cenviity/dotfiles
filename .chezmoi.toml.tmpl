@@ -1,8 +1,10 @@
 [cd]
-    command = "fish"
+{{ if not (lookPath "fish") }}# {{ end -}}
+command = "fish"
 
 [diff]
-    pager = "diff-so-fancy"
+{{ if not (lookPath "diff-so-fancy") }}# {{ end -}}
+pager = "diff-so-fancy"
 
 [data]
-    home = {{ .chezmoi.homeDir | quote }}
+home = {{ .chezmoi.homeDir | quote }}
