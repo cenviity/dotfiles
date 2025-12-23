@@ -1,11 +1,3 @@
-[credential "https://github.com"]
-	{{- if eq .chezmoi.hostname "DSDU-VincentYim" }}
-	helper = !{{ lookPath "gh" | trim }} auth git-credential
-	{{- end }}
-[credential "https://gist.github.com"]
-	{{- if eq .chezmoi.hostname "DSDU-VincentYim" }}
-	helper = !{{ lookPath "gh" | trim }} auth git-credential
-	{{- end }}
 [init]
 	defaultBranch = main
 [user]
