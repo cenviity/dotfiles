@@ -1,3 +1,6 @@
-{{- if ne .chezmoi.os "linux" }}
+{{ if ne .chezmoi.os "linux" -}}
 .hushlogin
-{{- end }}
+{{ end -}}
+{{ if not (contains "RMIT" .chezmoi.username) -}}
+.bash_profile
+{{ end -}}
