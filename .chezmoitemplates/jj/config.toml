@@ -1,14 +1,22 @@
-#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+#:schema "https://jj-vcs.github.io/jj/prerelease/config-schema.json"
 
 [user]
 name = "Vincent Ging Ho Yim"
+{{ if contains "RMIT" .chezmoi.username -}}
 email = "vincent.yim@rmit.edu.au"
+{{ else -}}
+email = "cenviity@gmail.com"
+{{ end }}
 
 [ui]
 default-command = "log"
+{{- if lookPath "difft" }}
 diff-formatter = "difft"
+{{- end }}
 diff-editor = ":builtin"
+{{ if contains "RMIT" .chezmoi.username -}}
 editor = "code.cmd -w"
+{{ end -}}
 merge-editor = "vscode"
 pager = ":builtin"
 log-word-wrap = true
@@ -44,7 +52,7 @@ tug = ["bookmark", "move", "--from=closest_bookmarks()", "--to=closest_pushable(
 
 w = ["watch"]
 watch = ["util", "exec", "--", "sh", "-c", '''
-    hwatch --color --no-title --interval 60 -- jj log --color always --ignore-working-copy $@
+    hwatch --color --no-title --interval {{ if contains "RMIT" .chezmoi.username }}60{{ else }}1{{ end }} -- jj log --color always {{ if contains "RMIT" .chezmoi.username }}--ignore-working-copy{{ end }} $@
     ''', ""]
 
 [snapshot]
@@ -59,9 +67,11 @@ auto-update-stale = true
 
 # See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
 default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
-private-commits = "description(glob-i:'wip:*') | description(glob-i:'private:*')"
+
+private_commits = "mine() & (description(glob-i:'wip:*') | description(glob-i:'private:*'))"
+
 # Revisions including and after the closest described revision
-wip_branch = "heads(::@- ~ description(exact:'') ~ private-commits):: & mutable()"
+wip_branch = "heads(::@- ~ description(exact:'') ~ private_commits):: & mutable()"
 "desc(pattern)" = "description(pattern)"
 
 [templates]
