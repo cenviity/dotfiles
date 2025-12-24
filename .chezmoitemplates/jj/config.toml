@@ -52,7 +52,7 @@ tug = ["bookmark", "move", "--from=closest_bookmarks()", "--to=closest_pushable(
 
 w = ["watch"]
 watch = ["util", "exec", "--", "sh", "-c", '''
-    hwatch --color --no-title --interval {{ if contains "RMIT" .chezmoi.username }}60{{ else }}1{{ end }} -- jj log --color always {{ if contains "RMIT" .chezmoi.username }}--ignore-working-copy{{ end }} $@
+    hwatch --color --no-title --interval {{ if contains "RMIT" .chezmoi.username }}60{{ else }}1{{ end }} -- jj log --color always {{ if contains "RMIT" .chezmoi.username }}--ignore-working-copy {{ end }}$@
     ''', ""]
 
 [snapshot]
