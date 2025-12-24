@@ -8,3 +8,9 @@ pager = "diff-so-fancy"
 
 [data]
 home = {{ .chezmoi.homeDir | quote }}
+
+{{ if lookPath "jj" -}}
+[update]
+command = "jj"
+args = ["git", "fetch"]
+{{ end -}}
