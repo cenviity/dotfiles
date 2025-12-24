@@ -1,10 +1,12 @@
+{{ if lookPath "fish" -}}
 [cd]
-{{ if not (lookPath "fish") }}# {{ end -}}
 command = "fish"
+{{ end -}}
 
+{{ if lookPath "diff-so-fancy" -}}
 [diff]
-{{ if not (lookPath "diff-so-fancy") }}# {{ end -}}
 pager = "diff-so-fancy"
+{{ end -}}
 
 [data]
 home = {{ .chezmoi.homeDir | quote }}
