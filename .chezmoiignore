@@ -2,9 +2,9 @@
 .hushlogin
 {{ end -}}
 {{ if contains "RMIT" .chezmoi.username -}}
-.config/jj/config.toml
+.config/jj/
 {{ end -}}
 {{ if not (contains "RMIT" .chezmoi.username) -}}
 .bash_profile
-AppData/Roaming/jj/config.toml
+AppData/Roaming/jj/
 {{ end -}}
