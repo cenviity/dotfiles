@@ -6,5 +6,5 @@
 {{ end -}}
 {{ if not (contains "RMIT" .chezmoi.username) -}}
 .bash_profile
-AppData/Roaming/jj/
+AppData/
 {{ end -}}
