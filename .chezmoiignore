@@ -1,6 +1,10 @@
 {{ if ne .chezmoi.os "linux" -}}
 .hushlogin
 {{ end -}}
+{{ if contains "RMIT" .chezmoi.username -}}
+.config/jj/config.toml
+{{ end -}}
 {{ if not (contains "RMIT" .chezmoi.username) -}}
 .bash_profile
+AppData/Roaming/jj/config.toml
 {{ end -}}
