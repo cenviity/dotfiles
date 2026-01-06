@@ -122,13 +122,16 @@ if(
     root,
     format_root_commit(self),
     label(
-        if(current_working_copy, "working_copy"),
         separate(
-            "\n",
-            format_short_commit_header(self),
+            if(current_working_copy, "working_copy"),
+            if(immutable, "immutable", "mutable"),
+            if(conflict, "conflicted"),
+        ),
+        concat(
+            format_short_commit_header(self) ++ "\n",
             separate(
                 " ",
-                if(empty, label("empty", "(empty)")),
+                if(empty, empty_commit_marker),
                 if(
                     description,
                     separate(
@@ -141,7 +144,7 @@ if(
                     ),
                     label(if(empty, "empty"), description_placeholder),
                 ),
-            ),
+            ) ++ "\n",
             if(self.contained_in("wip_branch"), diff.summary()),
         ),
     )
