@@ -2,11 +2,7 @@
 
 [user]
 name = "Vincent Ging Ho Yim"
-{{ if contains "RMIT" .chezmoi.username -}}
-email = "vincent.yim@rmit.edu.au"
-{{ else -}}
 email = "cenviity@gmail.com"
-{{ end }}
 
 [ui]
 default-command = "log"
@@ -14,9 +10,6 @@ default-command = "log"
 diff-formatter = "difft"
 {{- end }}
 diff-editor = ":builtin"
-{{ if contains "RMIT" .chezmoi.username -}}
-editor = "code.cmd -w"
-{{ end -}}
 merge-editor = "vscode"
 pager = ":builtin"
 log-word-wrap = true
@@ -52,7 +45,7 @@ tug = ["bookmark", "move", "--from=closest_bookmarks()", "--to=closest_pushable(
 
 w = ["watch"]
 watch = ["util", "exec", "--", "sh", "-c", '''
-    hwatch --color --no-title --interval {{ if contains "RMIT" .chezmoi.username }}60{{ else }}1{{ end }} -- jj log --color always {{ if contains "RMIT" .chezmoi.username }}--ignore-working-copy {{ end }}$@
+    hwatch --color --no-title --interval 1 -- jj log --color always $@
     ''', ""]
 
 [snapshot]

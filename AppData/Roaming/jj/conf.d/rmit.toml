@@ -1,0 +1,12 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[user]
+email = "vincent.yim@rmit.edu.au"
+
+[ui]
+editor = "code.cmd -w"
+
+[aliases]
+watch = ["util", "exec", "--", "sh", "-c", '''
+    hwatch --color --no-title --interval 60 -- jj log --color always --ignore-working-copy $@
+    ''', ""]
