@@ -21,3 +21,6 @@ source <(chezmoi completion bash)
 
 # Add `jj` shell completions.
 source <(COMPLETE=bash jj)
+
+# Add `zoxide` shell completions.
+eval "$(zoxide init bash)"
