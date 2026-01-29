@@ -10,6 +10,9 @@ PATH="~/AppData/Local/Programs/Microsoft\ VS\ Code/bin/:$PATH"
 # Add Cargo binaries.
 PATH="$HOME/.cargo/bin:$PATH"
 
+# Add R binaries.
+PATH="/c/Program\ Files/R/R-4.5.2/bin:$PATH"
+
 # Add aliases.
 source $HOME/.bash_aliases
 
