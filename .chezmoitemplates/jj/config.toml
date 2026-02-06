@@ -61,7 +61,7 @@ auto-update-stale = true
 "closest_bookmarks()" = "closest_bookmarks(@-)"
 "closest_bookmarks(to)" = "heads(::to & bookmarks())"
 "closest_pushable()" = "closest_pushable(@-)"
-"closest_pushable(to)" = "heads(::to ~ description(exact:'')) & (~empty() | merges())"
+"closest_pushable(to)" = "heads(::to ~ description(exact:'') & (~empty() | merges()))"
 
 # See https://github.com/jj-vcs/jj/blob/main/cli/src/config/revsets.toml
 default = "present(@) | ancestors(immutable_heads().., 2) | present(trunk())"
