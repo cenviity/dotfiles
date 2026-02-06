@@ -41,7 +41,12 @@ rb = ["rebase"]
 sq = ["squash"]
 
 # Based on https://github.com/jj-vcs/jj/discussions/5568#discussioncomment-12674748
-tug = ["bookmark", "move", "--from=closest_bookmarks()", "--to=closest_pushable()"]
+tug = [
+    "bookmark",
+    "move",
+    "--from=closest_bookmarks()",
+    "--to=closest_pushable()",
+]
 
 w = ["watch"]
 watch = ["util", "exec", "--", "sh", "-c", '''
