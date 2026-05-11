@@ -1,5 +1,8 @@
 fish_add_path {{ .home }}/.local/bin {{ .home }}/bin
 
+# Add Cargo to $PATH
+fish_add_path {{ .home }}/.cargo/bin
+
 {{ if contains "cenvii" .chezmoi.hostname -}}
 # Add Brew to $PATH
 fish_add_path /opt/homebrew/bin
