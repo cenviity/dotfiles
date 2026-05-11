@@ -34,6 +34,11 @@ if status is-interactive
     # Disable default fish greeting
     set -g fish_greeting
 
+    # Initiate Mise.
+    if type -q mise
+        mise activate fish | source
+    end
+
     # Initiate atuin
     if type -q atuin
         set -gx ATUIN_NOBIND true
