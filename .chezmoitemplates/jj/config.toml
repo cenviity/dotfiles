@@ -56,6 +56,9 @@ watch = ["util", "exec", "--", "sh", "-c", '''
 [snapshot]
 auto-update-stale = true
 
+[revsets]
+bookmark-advance-to = "closest_pushable()"
+
 [revset-aliases]
 # Based on https://github.com/jj-vcs/jj/discussions/5568#discussioncomment-12674748
 "closest_bookmarks()" = "closest_bookmarks(@-)"
