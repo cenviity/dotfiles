@@ -58,3 +58,6 @@ abbr --command jj -- -I --ignore-immutable
 # dbt-cloud
 abbr d /opt/homebrew/bin/dbt
 abbr dbt-cloud /opt/homebrew/bin/dbt
+
+# rledger
+abbr rl rledger
