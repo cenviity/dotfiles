@@ -9,3 +9,6 @@ alias latr="la --sort modified"
 
 # Add `dbt-cloud` alias.
 alias dbt-cloud="$HOME/.local/bin/dbt"
+
+# Add Snowflake CoCo alias.
+alias cortex=cortex.cmd
