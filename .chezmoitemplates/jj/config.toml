@@ -54,6 +54,12 @@ watch = ["util", "exec", "--", "sh", "-c", '''
     hwatch --color --no-title --interval 1 -- jj log --color always $@
     ''', ""]
 
+default-timestamp = [
+    "--config",
+    "template-aliases.'format_timestamp(timestamp)'='format_timestamp_long(timestamp)'",
+]
+default-ts = ["default-timestamp"]
+
 [snapshot]
 auto-update-stale = true
 
