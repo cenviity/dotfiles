@@ -38,6 +38,7 @@ nc = ["next", "--conflict"]
 p = ["prev"]
 pc = ["prev", "--conflict"]
 rb = ["rebase"]
+sp = ["simplify-parents"]
 sq = ["squash"]
 
 # Based on https://github.com/jj-vcs/jj/discussions/5568#discussioncomment-12674748
