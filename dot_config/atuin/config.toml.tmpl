@@ -83,6 +83,7 @@ ctrl_n_shortcuts = true
 {{- else if eq .chezmoi.os "windows" }}
 ctrl_n_shortcuts = false
 {{- end }}
+search_mode = "daemon-fuzzy"
 
 ## prevent commands matching any of these regexes from being written to history.
 ## Note that these regular expressions are unanchored, i.e. if they don't start
@@ -105,3 +106,7 @@ ctrl_n_shortcuts = false
 
 [sync]
 records = true
+
+[daemon]
+enabled = true
+autostart = true
