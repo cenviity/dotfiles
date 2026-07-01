@@ -27,3 +27,7 @@ source <(COMPLETE=bash jj)
 
 # Add `zoxide` shell completions.
 eval "$(zoxide init bash)"
+
+# Add `atuin`.
+source $HOME/.atuin/bin/env
+eval "$(atuin init bash --disable-up-arrow)"
